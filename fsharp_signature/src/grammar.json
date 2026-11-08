@@ -4491,6 +4491,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "nullable_type"
+          },
+          {
+            "type": "SYMBOL",
             "name": "simple_type"
           },
           {
@@ -4556,6 +4560,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "nullable_type"
+          },
+          {
+            "type": "SYMBOL",
             "name": "simple_type"
           },
           {
@@ -4607,6 +4615,10 @@
       "content": {
         "type": "CHOICE",
         "members": [
+          {
+            "type": "SYMBOL",
+            "name": "nullable_type"
+          },
           {
             "type": "SYMBOL",
             "name": "simple_type"
@@ -4920,6 +4932,27 @@
           "value": "measure_atom"
         }
       ]
+    },
+    "nullable_type": {
+      "type": "PREC_LEFT",
+      "value": 3,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_type"
+          },
+          {
+            "type": "STRING",
+            "value": "|"
+          },
+          {
+            "type": "STRING",
+            "value": "null"
+          }
+        ]
+      }
     },
     "simple_type": {
       "type": "CHOICE",

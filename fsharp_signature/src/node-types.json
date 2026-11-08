@@ -366,6 +366,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -627,6 +631,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -714,6 +722,10 @@
         },
         {
           "type": "long_identifier_or_op",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -921,6 +933,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -1044,6 +1060,10 @@
             "named": false
           },
           {
+            "type": "nullable_type",
+            "named": true
+          },
+          {
             "type": "paren_expression",
             "named": true
           },
@@ -1133,6 +1153,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -1480,6 +1504,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -1547,6 +1575,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -1611,6 +1643,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -1736,6 +1772,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -2064,6 +2104,10 @@
             "named": true
           },
           {
+            "type": "nullable_type",
+            "named": true
+          },
+          {
             "type": "paren_type",
             "named": true
           },
@@ -2149,6 +2193,10 @@
           },
           {
             "type": "list_type",
+            "named": true
+          },
+          {
+            "type": "nullable_type",
             "named": true
           },
           {
@@ -2338,6 +2386,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -2551,6 +2603,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -2623,6 +2679,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -2916,6 +2976,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -3106,6 +3170,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -3377,6 +3445,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_expression",
           "named": true
         },
@@ -3593,6 +3665,10 @@
             "named": false
           },
           {
+            "type": "nullable_type",
+            "named": true
+          },
+          {
             "type": "paren_expression",
             "named": true
           },
@@ -3709,6 +3785,10 @@
         },
         {
           "type": "long_identifier_or_op",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -4043,6 +4123,77 @@
     }
   },
   {
+    "type": "nullable_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "anon_record_type",
+          "named": true
+        },
+        {
+          "type": "byref_type",
+          "named": true
+        },
+        {
+          "type": "compound_type",
+          "named": true
+        },
+        {
+          "type": "constrained_type",
+          "named": true
+        },
+        {
+          "type": "flexible_type",
+          "named": true
+        },
+        {
+          "type": "function_type",
+          "named": true
+        },
+        {
+          "type": "generic_type",
+          "named": true
+        },
+        {
+          "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
+          "type": "paren_type",
+          "named": true
+        },
+        {
+          "type": "postfix_type",
+          "named": true
+        },
+        {
+          "type": "simple_type",
+          "named": true
+        },
+        {
+          "type": "static_type",
+          "named": true
+        },
+        {
+          "type": "struct_type",
+          "named": true
+        },
+        {
+          "type": "type_argument",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "optional_pattern",
     "named": true,
     "fields": {},
@@ -4276,6 +4427,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -4344,6 +4499,10 @@
         },
         {
           "type": "long_identifier",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -4837,6 +4996,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_expression",
           "named": true
         },
@@ -4961,6 +5124,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -5247,6 +5414,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -5353,6 +5524,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -5466,6 +5641,10 @@
           },
           {
             "type": "measure",
+            "named": true
+          },
+          {
+            "type": "nullable_type",
             "named": true
           },
           {
@@ -5620,6 +5799,10 @@
         },
         {
           "type": "named_static_parameter",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -6023,6 +6206,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "optional_pattern",
           "named": true
         },
@@ -6119,6 +6306,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -6273,6 +6464,10 @@
           "named": true
         },
         {
+          "type": "nullable_type",
+          "named": true
+        },
+        {
           "type": "paren_type",
           "named": true
         },
@@ -6394,6 +6589,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {

@@ -1,0 +1,115 @@
+================================================================================
+Inline else past byte-column 255 retains its offside anchor
+================================================================================
+
+let f x =
+    task {
+        match x with
+        | Some a ->
+            match a with
+            | Some b ->
+                let fl = if true then 1 else                                                                                                                                                                                                                                   None
+                let msrs =
+                    match b with
+                    | Some m -> []
+                    | _ -> []
+                return { X = msrs }
+            | _ -> return { X = [] }
+        | _ -> return { X = [] }
+    }
+
+--------------------------------------------------------------------------------
+
+(file
+  (declaration_expression
+    (function_or_value_defn
+      (function_declaration_left
+        (identifier)
+        (argument_patterns
+          (long_identifier
+            (identifier))))
+      (ce_expression
+        (long_identifier_or_op
+          (identifier))
+        (match_expression
+          (long_identifier_or_op
+            (identifier))
+          (rules
+            (rule
+              (identifier_pattern
+                (long_identifier_or_op
+                  (identifier))
+                (identifier_pattern
+                  (long_identifier_or_op
+                    (identifier))))
+              (match_expression
+                (long_identifier_or_op
+                  (identifier))
+                (rules
+                  (rule
+                    (identifier_pattern
+                      (long_identifier_or_op
+                        (identifier))
+                      (identifier_pattern
+                        (long_identifier_or_op
+                          (identifier))))
+                    (declaration_expression
+                      (function_or_value_defn
+                        (value_declaration_left
+                          (identifier_pattern
+                            (long_identifier_or_op
+                              (identifier))))
+                        (if_expression
+                          (const
+                            (bool))
+                          (const
+                            (int))
+                          (long_identifier_or_op
+                            (identifier))))
+                      (declaration_expression
+                        (function_or_value_defn
+                          (value_declaration_left
+                            (identifier_pattern
+                              (long_identifier_or_op
+                                (identifier))))
+                          (match_expression
+                            (long_identifier_or_op
+                              (identifier))
+                            (rules
+                              (rule
+                                (identifier_pattern
+                                  (long_identifier_or_op
+                                    (identifier))
+                                  (identifier_pattern
+                                    (long_identifier_or_op
+                                      (identifier))))
+                                (list_expression))
+                              (rule
+                                (wildcard_pattern)
+                                (list_expression)))))
+                        (prefixed_expression
+                          (brace_expression
+                            (field_initializers
+                              (field_initializer
+                                (long_identifier
+                                  (identifier))
+                                (long_identifier_or_op
+                                  (identifier)))))))))
+                  (rule
+                    (wildcard_pattern)
+                    (prefixed_expression
+                      (brace_expression
+                        (field_initializers
+                          (field_initializer
+                            (long_identifier
+                              (identifier))
+                            (list_expression)))))))))
+            (rule
+              (wildcard_pattern)
+              (prefixed_expression
+                (brace_expression
+                  (field_initializers
+                    (field_initializer
+                      (long_identifier
+                        (identifier))
+                      (list_expression))))))))))))

@@ -1,0 +1,74 @@
+==================
+Nullable reference type annotations
+==================
+module Nullable
+type Result = { Error: string | null }
+let identity (value: string | null) : string | null = value
+let classify (value: string | null) =
+    match value with
+    | null -> "empty"
+    | text -> text
+
+---
+
+(file
+  (named_module
+    (long_identifier
+      (identifier))
+    (type_definition
+      (record_type_defn
+        (type_name
+          (identifier))
+        (record_fields
+          (record_field
+            (identifier)
+            (nullable_type
+              (simple_type
+                (long_identifier
+                  (identifier))))))))
+    (declaration_expression
+      (function_or_value_defn
+        (function_declaration_left
+          (identifier)
+          (argument_patterns
+            (typed_pattern
+              (identifier_pattern
+                (long_identifier_or_op
+                  (identifier)))
+              (nullable_type
+                (simple_type
+                  (long_identifier
+                    (identifier)))))))
+        (nullable_type
+          (simple_type
+            (long_identifier
+              (identifier))))
+        (long_identifier_or_op
+          (identifier))))
+    (declaration_expression
+      (function_or_value_defn
+        (function_declaration_left
+          (identifier)
+          (argument_patterns
+            (typed_pattern
+              (identifier_pattern
+                (long_identifier_or_op
+                  (identifier)))
+              (nullable_type
+                (simple_type
+                  (long_identifier
+                    (identifier)))))))
+        (match_expression
+          (long_identifier_or_op
+            (identifier))
+          (rules
+            (rule
+              (const
+                (string)))
+            (rule
+              (identifier_pattern
+                (long_identifier_or_op
+                  (identifier)))
+              (long_identifier_or_op
+                (long_identifier
+                  (identifier))))))))))

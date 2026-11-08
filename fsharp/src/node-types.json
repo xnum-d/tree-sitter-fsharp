@@ -320,6 +320,10 @@
         "named": true
       },
       {
+        "type": "nullable_type",
+        "named": true
+      },
+      {
         "type": "paren_type",
         "named": true
       },
@@ -631,6 +635,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -1252,6 +1260,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {
@@ -3184,6 +3196,21 @@
     }
   },
   {
+    "type": "nullable_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "object_expression",
     "named": true,
     "fields": {
@@ -4738,6 +4765,10 @@
         },
         {
           "type": "list_type",
+          "named": true
+        },
+        {
+          "type": "nullable_type",
           "named": true
         },
         {

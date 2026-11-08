@@ -2157,25 +2157,40 @@ static unsigned serialize(Scanner *scanner, char *buffer) {
   if (preprocessor_count > UINT8_MAX) {
     preprocessor_count = UINT8_MAX;
   }
+  size_t preprocessor_capacity =
+      (TREE_SITTER_SERIALIZATION_BUFFER_SIZE - size - 3) / 2;
+  if (preprocessor_count > preprocessor_capacity) {
+    preprocessor_count = preprocessor_capacity;
+  }
 
   buffer[size++] = (char)preprocessor_count;
 
   for (size_t iter = 0; iter < preprocessor_count &&
                         size < TREE_SITTER_SERIALIZATION_BUFFER_SIZE;
        iter++) {
-    char e = *array_get(&scanner->preprocessor_indents, iter);
-    buffer[size++] = e;
+    if (size + 2 > TREE_SITTER_SERIALIZATION_BUFFER_SIZE) break;
+    uint16_t indent = *array_get(&scanner->preprocessor_indents, iter);
+    buffer[size++] = (char)(indent & 0xff);
+    buffer[size++] = (char)(indent >> 8);
   }
 
   size_t indent_count = scanner->indents.size > 0 ? scanner->indents.size - 1 : 0;
   if (indent_count > UINT8_MAX) {
     indent_count = UINT8_MAX;
   }
+  size_t indent_capacity =
+      (TREE_SITTER_SERIALIZATION_BUFFER_SIZE - size - 2) / 3;
+  if (indent_count > indent_capacity) {
+    indent_count = indent_capacity;
+  }
   buffer[size++] = (char)indent_count;
 
   uint32_t iter = 1;
   for (; iter <= indent_count && size < TREE_SITTER_SERIALIZATION_BUFFER_SIZE; ++iter) {
-    buffer[size++] = (char)*array_get(&scanner->indents, iter);
+    if (size + 2 > TREE_SITTER_SERIALIZATION_BUFFER_SIZE) break;
+    uint16_t indent = *array_get(&scanner->indents, iter);
+    buffer[size++] = (char)(indent & 0xff);
+    buffer[size++] = (char)(indent >> 8);
   }
 
   // One byte per indent kind. Stack depth is bounded by source nesting (~10),
@@ -2227,18 +2242,20 @@ static void deserialize(Scanner *scanner, const char *buffer, unsigned length) {
     if (size >= length) return;
     size_t preprocessor_count = (uint8_t)buffer[size++];
 
-    size_t preproc_end = size + preprocessor_count;
-    if (preproc_end > length) preproc_end = length;
-    for (; size < preproc_end; size++) {
-      array_push(&scanner->preprocessor_indents, (unsigned char)buffer[size]);
+    for (size_t i = 0; i < preprocessor_count && size + 1 < length; i++) {
+      uint16_t indent = (uint8_t)buffer[size] |
+                        ((uint16_t)(uint8_t)buffer[size + 1] << 8);
+      size += 2;
+      array_push(&scanner->preprocessor_indents, indent);
     }
 
     if (size >= length) return;
     size_t indent_count = (uint8_t)buffer[size++];
-    size_t indent_bytes_end = size + indent_count;
-    if (indent_bytes_end > length) indent_bytes_end = length;
-    for (; size < indent_bytes_end; size++) {
-      array_push(&scanner->indents, (unsigned char)buffer[size]);
+    for (size_t i = 0; i < indent_count && size + 1 < length; i++) {
+      uint16_t indent = (uint8_t)buffer[size] |
+                        ((uint16_t)(uint8_t)buffer[size + 1] << 8);
+      size += 2;
+      array_push(&scanner->indents, indent);
     }
 
     size_t actual_indent_count = scanner->indents.size > 0 ? scanner->indents.size - 1 : 0;

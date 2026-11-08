@@ -1353,6 +1353,7 @@ module.exports = grammar({
       prec(
         4,
         choice(
+          $.nullable_type,
           $.simple_type,
           $.generic_type,
           $.paren_type,
@@ -1378,6 +1379,7 @@ module.exports = grammar({
       prec(
         4,
         choice(
+          $.nullable_type,
           $.simple_type,
           $.generic_type,
           $.paren_type,
@@ -1400,6 +1402,7 @@ module.exports = grammar({
       prec(
         4,
         choice(
+          $.nullable_type,
           $.simple_type,
           $.generic_type,
           $.paren_type,
@@ -1493,6 +1496,7 @@ module.exports = grammar({
         alias("1", $.measure_atom),
       ),
 
+    nullable_type: ($) => prec.left(3, seq($._type, "|", "null")),
     simple_type: ($) => choice($.long_identifier, $._static_type_identifier),
     generic_type: ($) =>
       prec.right(
