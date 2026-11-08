@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "tree-sitter-fsharp"
 description = "F# grammars (implementation and signature files) for tree-sitter"
-version = "0.3.12"
+version = "0.3.12+srclight.1"
 keywords = ["incremental", "parsing", "tree-sitter", "fsharp"]
 classifiers = [
   "Intended Audience :: Developers",
@@ -19,7 +19,7 @@ license.text = "MIT"
 readme = "bindings/python/README.md"
 
 [project.urls]
-Homepage = "https://github.com/ionide/tree-sitter-fsharp"
+Homepage = "https://github.com/xnum-d/tree-sitter-fsharp"
 
 [project.optional-dependencies]
 core = ["tree-sitter~=0.24"]
